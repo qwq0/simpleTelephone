@@ -1,0 +1,7 @@
+{
+    "type": "module",
+    "devDependencies": {
+        "eventemitter3": "^5.0.1"
+    },
+    "dependencies": {}
+}

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "target": "ES2022",
+        "module": "ES2022",
+        "moduleResolution": "bundler",
+        "lib": [
+            "DOM",
+            "ES2022"
+        ],
+        "types": [
+            "eventemitter3"
+        ]
+    },
+    "exclude": [
+        "dist"
+    ]
+}
