@@ -20,7 +20,19 @@ import { initEntirely } from "./entirety.js";
         context.key = uniqueIdentifierString(3);
     }
 
-    let peer = new Peer();
+    let peer = new Peer({
+        config: {
+            iceServers: [
+                { url: "stun:stun.l.google.com:19302" },
+                { url: "stun:stun.voipbuster.com" },
+                { url: "stun:stun.voipstunt.com" },
+                { url: "stun:stun.voip.aebc.com" },
+                { url: "stun:stun.internetcalls.com" },
+                { url: "stun:stun.rynga.com:3478" },
+                { url: "stun:stun.ippi.fr:3478" },
+            ]
+        }
+    });
     context.peer = peer;
 
     peer.on("open", (id) =>
