@@ -132,7 +132,15 @@ import { initEntirely } from "./entirety.js";
     try
     {
         context.localAudioStream = await navigator.mediaDevices.getUserMedia({
-            audio: true
+            audio: {
+                noiseSuppression: { ideal: true },
+                autoGainControl: { ideal: false },
+                echoCancellation: { ideal: false },
+                channelCount: { ideal: 1 },
+                sampleRate: { ideal: 44100 },
+                sampleSize: { ideal: 16 }
+            },
+            video: false
         });
     }
     catch (err)
