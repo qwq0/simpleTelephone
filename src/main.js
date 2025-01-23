@@ -44,7 +44,7 @@ import { initEntirely } from "./entirety.js";
 
         if (connectToId && context.localAudioStream)
         {
-            let cPeer = peer.connect(connectToId, { reliable: true });
+            let cPeer = peer.connect(connectToId, { reliable: false });
             cPeer.on("open", function ()
             {
                 cPeer.send("c:" + context.key);
