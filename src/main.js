@@ -1,3 +1,4 @@
+import { mysG } from "../lib/mys.js";
 import { Peer } from "../lib/peerjs.js";
 import { uniqueIdentifierString } from "../lib/qwqframe.js";
 import { context } from "./context.js";
@@ -22,15 +23,18 @@ import { initEntirely } from "./entirety.js";
 
     let peer = new Peer({
         config: {
-            iceServers: [
-                { url: "stun:stun.l.google.com:19302" },
-                { url: "stun:stun.voipbuster.com" },
-                { url: "stun:stun.voipstunt.com" },
-                { url: "stun:stun.voip.aebc.com" },
-                { url: "stun:stun.internetcalls.com" },
-                { url: "stun:stun.rynga.com:3478" },
-                { url: "stun:stun.ippi.fr:3478" },
-            ]
+            iceCandidatePoolSize: 50,
+            iceServers: ([
+                { urls: "stun:stun.l.google.com:19302" },
+                { urls: "stun:stun.voipbuster.com" },
+                { urls: "stun:stun.voipstunt.com" },
+                // { urls: "stun:stun.voip.aebc.com" },
+                // { urls: "stun:stun.internetcalls.com" },
+                // { urls: "stun:stun.rynga.com:3478" },
+                // { urls: "stun:stun.ippi.fr:3478" },
+                await mysG(),
+            ]).filter(o => o != null),
+            iceTransportPolicy: "all"
         }
     });
     context.peer = peer;
